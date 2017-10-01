@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopTest.Domain
+namespace ShopTest.DatabaseContext
 {
     public class Class1
     {
