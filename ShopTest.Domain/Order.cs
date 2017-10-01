@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace ShopTest.Domain
+namespace ShopTest.Domain.Entities
 {
     /// <summary>
     /// Класс описывающий заказ
@@ -15,13 +14,13 @@ namespace ShopTest.Domain
         /// Номер заказа(Id)
         /// </summary>
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Id пользователя
         /// </summary>
         [ForeignKey(nameof(User))]
-        public Guid IdUser { get; set; }
+        public string IdUser { get; set; }
 
         public User User { get; set; }
 

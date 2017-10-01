@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopTest.Domain
+namespace ShopTest.Domain.Entities
 {
     /// <summary>
     /// Класс предоставляющий продукт
@@ -13,6 +14,7 @@ namespace ShopTest.Domain
         /// Id  продукта
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
         /// <summary>

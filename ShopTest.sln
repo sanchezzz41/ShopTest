@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTest.Domain", "ShopTest.Domain\ShopTest.Domain.csproj", "{4BD196A9-A915-4EB3-8084-4E016BE968F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopTest.Domain.Entities", "ShopTest.Domain\ShopTest.Domain.Entities.csproj", "{4BD196A9-A915-4EB3-8084-4E016BE968F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTest.DatabaseContext", "ShopTest.DatabaseContext\ShopTest.DatabaseContext.csproj", "{C213D849-7179-456A-BEA0-AF39A5C20EF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTest.Database", "ShopTest.DatabaseContext\ShopTest.Database.csproj", "{C213D849-7179-456A-BEA0-AF39A5C20EF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopTest.Web", "ShopTest.Web\ShopTest.Web.csproj", "{A206CF9F-4E78-4C06-BADF-706E6B986B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C213D849-7179-456A-BEA0-AF39A5C20EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C213D849-7179-456A-BEA0-AF39A5C20EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C213D849-7179-456A-BEA0-AF39A5C20EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A206CF9F-4E78-4C06-BADF-706E6B986B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A206CF9F-4E78-4C06-BADF-706E6B986B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A206CF9F-4E78-4C06-BADF-706E6B986B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A206CF9F-4E78-4C06-BADF-706E6B986B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

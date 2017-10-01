@@ -1,35 +1,32 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopTest.Domain
+namespace ShopTest.Domain.Entities
 {
    /// <summary>
    /// Класс описывающий пользователя
    /// </summary>
-    public class User
+    public class User: IdentityUser
     {
-        /// <summary>
-        /// Id пользователя
-        /// </summary>
-        [Key]
-        public Guid Id { get; set; }
 
         /// <summary>
         /// Имя пользователя
         /// </summary>
         public string Name{ get; set; }
 
+
         /// <summary>
-        /// Номер телефона
+        /// Пароль пользователя
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// Все заказы данного пользователя
         /// </summary>
         public virtual List<Order> Orders { get; set; }
+
     }
 }

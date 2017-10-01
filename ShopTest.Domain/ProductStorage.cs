@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopTest.Domain
+namespace ShopTest.Domain.Entities
 {
     /// <summary>
     /// Класс соеденящий продукты и склады

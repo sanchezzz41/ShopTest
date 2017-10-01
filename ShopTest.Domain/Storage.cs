@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace ShopTest.Domain
+namespace ShopTest.Domain.Entities
 {
     /// <summary>
     /// Класс описывающий склад
@@ -15,6 +14,7 @@ namespace ShopTest.Domain
         /// Id хранилища
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
         /// <summary>
