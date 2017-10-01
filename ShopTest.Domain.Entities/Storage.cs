@@ -31,5 +31,21 @@ namespace ShopTest.Domain.Entities
         /// Список, показывающий что имеется на данном складе
         /// </summary>
         public virtual List<ProductStorage> ProductStorages { get; set; }
+
+        public Storage()
+        {
+        }
+
+        /// <summary>
+        /// Иницилизирует новый склад
+        /// </summary>
+        /// <param name="street">Улица на которой находится склад</param>
+        /// <param name="phone">Номер телефона склада</param>
+        public Storage(string street,string phone)
+        {
+            Id = Guid.NewGuid();
+            Street = street;
+            Phone = phone;
+        }
     }
 }

@@ -11,22 +11,25 @@ namespace ShopTest.Domain.Entities
    /// </summary>
     public class User: IdentityUser
     {
-
-        /// <summary>
-        /// Имя пользователя
-        /// </summary>
-        public string Name{ get; set; }
-
-
-        /// <summary>
-        /// Пароль пользователя
-        /// </summary>
-        public string Password { get; set; }
-
         /// <summary>
         /// Все заказы данного пользователя
         /// </summary>
         public virtual List<Order> Orders { get; set; }
 
+        public User()
+        {
+        }
+
+        /// <summary>
+        /// Иницилизируется новый объект пользователь
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <param name="phoneNumber"></param>
+        public User(string userName,string email,string phoneNumber):base(userName)
+        {
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
     }
 }

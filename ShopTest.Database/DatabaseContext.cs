@@ -12,7 +12,6 @@ namespace ShopTest.Database
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> opt) : base(opt)
         {
-         
         }
 
         #region Список таблиц
@@ -55,7 +54,7 @@ namespace ShopTest.Database
             modelBuilder.Entity<OrderProduct>().HasKey(x => new {x.IdOrder, x.IdProduct});
             modelBuilder.Entity<ProductStorage>().HasKey(x => new {x.IdProduct, x.IdStorage});
             base.OnModelCreating(modelBuilder);
-
         }
+
     }
 }

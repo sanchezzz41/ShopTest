@@ -11,7 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ShopTest.Database;
+using ShopTest.Domain;
 using ShopTest.Domain.Entities;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ShopTest.Web
 {
@@ -23,15 +25,15 @@ namespace ShopTest.Web
         }
 
         public IConfiguration Configuration { get; }
+        private IServiceProvider _provider;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             //Добавления контекста бд
-            //services.AddDbContext<DatabaseContext>(x =>
-            //    x.UseNpgsql(Configuration["ConnectionStrings:ConnectionToDb"],
-            //        a => a.MigrationsAssembly("ShopTest.Web")));
+            services.AddDbContext<DatabaseContext>(x =>
+                x.UseNpgsql(Configuration["ConnectionStrings:ConnectionToDb"]));
 
             //Добавления аутификации
             services.AddIdentity<User, IdentityRole>()
@@ -49,6 +51,7 @@ namespace ShopTest.Web
                 options.Password.RequireLowercase = false;
                 options.Password.RequiredUniqueChars = 1;
 
+
                 // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
                 options.Lockout.MaxFailedAccessAttempts = 10;
@@ -58,7 +61,15 @@ namespace ShopTest.Web
                 options.User.RequireUniqueEmail = true;
             });
 
+            //Добавляем API для проверки запросов
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
 
+            services.AddDomainServices();
+
+            _provider = services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +82,15 @@ namespace ShopTest.Web
 
             app.UseAuthentication();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            _provider.GetService<DatabaseContext>().Database.Migrate();
+            _provider.GetService<DatabaseContext>().Initialize(_provider).Wait();
             app.UseMvc();
         }
     }

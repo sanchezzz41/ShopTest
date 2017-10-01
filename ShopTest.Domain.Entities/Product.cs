@@ -36,5 +36,22 @@ namespace ShopTest.Domain.Entities
         /// Список заказов, в которых есть данный продукт
         /// </summary>
         public virtual List<OrderProduct> ProductOrders { get; set; }
+
+        public Product()
+        {
+            
+        }
+
+        /// <summary>
+        /// Создания нового продукта
+        /// </summary>
+        /// <param name="name">Название продукта</param>
+        /// <param name="cost">Цена за 1 шт</param>
+        public Product(string name, int cost)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Cost = cost;
+        }
     }
 }
