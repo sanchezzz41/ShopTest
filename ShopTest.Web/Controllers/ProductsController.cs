@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using ShopTest.Domain.Models;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ShopTest.Web.Controllers
-{    
+{
     /// <summary>
     /// Контроллер для работы с продуктами
     /// </summary>
@@ -28,19 +29,13 @@ namespace ShopTest.Web.Controllers
         [HttpPost]
         public async Task<object> AddProduct([FromBody] ProductModel model)
         {
-           return await _productService.AddAsync(model);
+            return await _productService.AddAsync(model);
         }
-        
-        //Получает список продуктов
-        [HttpGet]
-        public async Task<object> GetProducts()
-        {
-            return await _productService.GetAsync();
-        }
-        
+
+
         //Удаляет проудкт
         [HttpDelete]
-        public async Task DeleteProducts([FromQuery]Guid id)
+        public async Task DeleteProducts([FromQuery] Guid id)
         {
             await _productService.DeleteAsync(id);
         }

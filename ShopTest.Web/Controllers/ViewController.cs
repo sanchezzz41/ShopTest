@@ -47,31 +47,66 @@ namespace ShopTest.Web.Controllers
         [HttpGet("Products")]
         public async Task<object> GetProducts()
         {
-            return await _productService.GetAsync();
+            var list = await _productService.GetAsync();
+            return list.Select(x =>
+                new
+                {
+                    x.Id,
+                    x.Name,
+                    x.Cost
+                });
         }
 
         [HttpGet("Orders")]
         public async Task<object> GetOrders()
         {
-            return await _orderService.GetAsync();
+            var list = await _orderService.GetAsync();
+            return list.Select(x =>
+                new
+                {
+                    x.Id,
+                    x.IdUser,
+                    x.Sum
+                });
         }
 
         [HttpGet("ProductStorage")]
         public async Task<object> GetProductStorage()
         {
-            return await _productStorageService.GetAsync();
+            var list = await _productStorageService.GetAsync();
+            return list.Select(x =>
+                new
+                {
+                    x.IdProduct,
+                    x.IdStorage,
+                    x.ProductCount
+                });
         }
 
         [HttpGet("OrderProduct")]
         public async Task<object> GetOrderProduct()
         {
-            return await _orderProductService.GetAsync();
+            var list = await _orderProductService.GetAsync();
+            return list.Select(x =>
+                new
+                {
+                    x.IdOrder,
+                    x.IdProduct,
+                    x.ProductCount
+                });
         }
 
         [HttpGet("Storage")]
         public async Task<object> GetStorage()
         {
-            return await _storageService.GetAsync();
+            var list = await _storageService.GetAsync();
+            return list.Select(x =>
+                new
+                {
+                    x.Id,
+                    x.Street,
+                    x.Phone
+                });
         }
     }
 }

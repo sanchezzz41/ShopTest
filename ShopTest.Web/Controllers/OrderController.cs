@@ -35,12 +35,6 @@ namespace ShopTest.Web.Controllers
             return await _orderService.AddAsync(model);
         }
 
-        //Получает список Заказов
-        [HttpGet]
-        public async Task<object> Get()
-        {
-            return await _orderService.GetAsync();
-        }
 
         //Оплачивает(удаляет) заказ
         [HttpDelete]

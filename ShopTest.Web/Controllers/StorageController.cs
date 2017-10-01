@@ -30,13 +30,7 @@ namespace ShopTest.Web.Controllers
             return await _storageService.AddAsync(model);
         }
 
-        //Получает список складов
-        [HttpGet]
-        public async Task<object> Get()
-        {
-            return await _storageService.GetAsync();
-        }
-
+  
         //Удаляет склад
         [HttpDelete]
         public async Task Delete([FromQuery]Guid id)

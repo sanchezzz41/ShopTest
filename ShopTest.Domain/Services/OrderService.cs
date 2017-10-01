@@ -57,14 +57,16 @@ namespace ShopTest.Domain.Services
         {
             var resultList = await _context.Orders
                 .Include(x => x.OrderProducts)
-                .Include(x => x.OrderProducts.Select(a => a.Product))
                 .ToListAsync();
+            _context.OrderProducts.Include(x=>x.Product);
             var resultOrder = resultList.SingleOrDefault(x => x.Id == idOrder);
             if (resultOrder == null)
             {
                 throw new NullReferenceException($"Ссылка на заказ равняется null.");
             }
-            var resultSum = resultOrder.OrderProducts.Sum(x => x.ProductCount * x.Product.Cost);
+            var resultOrderProd =
+                _context.OrderProducts.Include(x => x.Product).Where(x => x.IdOrder == resultOrder.Id);
+            var resultSum = resultOrderProd.Sum(x => x.ProductCount * x.Product.Cost);
             _context.Orders.Remove(resultOrder);
             return resultSum;
         }
