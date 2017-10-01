@@ -27,8 +27,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\ShopTest.DatabaseContext\ShopTest.Database.csproj" />
-    <ProjectReference Include="..\ShopTest.Domain\ShopTest.Domain.Entities.csproj" />
+    <ProjectReference Include="..\ShopTest.Database\ShopTest.Database.csproj" />
+    <ProjectReference Include="..\ShopTest.Domain.Entities\ShopTest.Domain.Entities.csproj" />
   </ItemGroup>
 
 </Project>
