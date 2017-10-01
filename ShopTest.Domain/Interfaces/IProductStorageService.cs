@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ShopTest.Domain.Entities;
+using ShopTest.Domain.Models;
 
 namespace ShopTest.Domain.Interfaces
 {
@@ -17,13 +18,10 @@ namespace ShopTest.Domain.Interfaces
         List<ProductStorage> ProductStorages { get; }
 
         /// <summary>
-        /// Добавляет продукт на склад
+        /// Добавляет продукт на склад(если он уже есть на складе, то прибавляет количество)
         /// </summary>
-        /// <param name="idProduct">Id продукта</param>
-        /// <param name="idStorage">Id склада</param>
-        /// <param name="count">Количество продуктов на складе</param>
         /// <returns></returns>
-        Task AddAsync(Guid idProduct, Guid idStorage,int count);
+        Task AddAsync(ProductStorageModel model);
 
         /// <summary>
         /// Удаляет список связок

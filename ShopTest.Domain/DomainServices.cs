@@ -17,6 +17,10 @@ namespace ShopTest.Domain
         public static IServiceCollection AddDomainServices(this IServiceCollection service)
         {
             service.AddScoped<IProductService, ProductService>();
+            service.AddScoped<IStorageService, StorageService>();
+            service.AddScoped<IProductStorageService, ProductStorageService>();
+            service.AddScoped<IOrderService, OrderService>();
+            service.AddScoped<IOrderProductService, OrderProductService>();
 
             return service;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ShopTest.Domain.Entities;
+using ShopTest.Domain.Models;
 
 namespace ShopTest.Domain.Interfaces
 {
@@ -19,11 +20,8 @@ namespace ShopTest.Domain.Interfaces
         /// <summary>
         /// Добавляет продукт в заказ
         /// </summary>
-        /// <param name="idProduct">Id продукта</param>
-        /// <param name="idOrder">Id заказа</param>
-        /// <param name="count">Количество продуктов на складе</param>
         /// <returns></returns>
-        Task AddAsync(Guid idProduct, Guid idOrder, int count);
+        Task AddAsync(OrderProductModel model);
 
         /// <summary>
         /// Удаляет список связок

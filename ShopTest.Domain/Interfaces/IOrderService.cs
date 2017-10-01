@@ -25,6 +25,12 @@ namespace ShopTest.Domain.Interfaces
         Task<Guid> AddAsync(OrderModel model);
 
         /// <summary>
+        /// Оплата(закрытие) заказа
+        /// </summary>
+        /// <returns></returns>
+        Task<int> PayOrder(Guid idOrder);
+
+        /// <summary>
         /// Изменение заказа
         /// </summary>
         /// <param name="id">Id заказа, парамерты которого надо изменить</param>
@@ -32,12 +38,12 @@ namespace ShopTest.Domain.Interfaces
         /// <returns></returns>
         Task EditAsync(Guid id, OrderModel model);
 
-        /// <summary>
-        /// Удаление заказа по Id
-        /// </summary>
-        /// <param name="id">Id заказа</param>
-        /// <returns></returns>
-        Task DeleteAsync(Guid id);
+        ///// <summary>
+        ///// Удаление заказа по Id
+        ///// </summary>
+        ///// <param name="id">Id заказа</param>
+        ///// <returns></returns>
+        //Task DeleteAsync(Guid id);
 
         /// <summary>
         /// Возваращет список всех заказов

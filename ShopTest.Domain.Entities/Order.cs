@@ -34,5 +34,21 @@ namespace ShopTest.Domain.Entities
         /// </summary>
         public virtual List<OrderProduct> OrderProducts { get; set; }
 
+        public Order()
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idUser">Id пользователя</param>
+        /// <param name="sum">сумма заказа</param>
+        public Order(string idUser, int sum = 0)
+        {
+            Id = Guid.NewGuid();
+            IdUser = idUser;
+            Sum = sum;
+        }
     }
 }
